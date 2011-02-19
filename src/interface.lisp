@@ -231,17 +231,18 @@ name doesn't exist, it is created.")
    (let ((entry (assoc name (headers-out reply))))
      (if entry
        (setf (cdr entry) new-value)
-       (setf (slot-value reply 'headers-out)
+       (setf (headers-out reply)
              (acons name new-value (headers-out reply))))
      new-value))
   (:method (new-value (name string) &optional (reply *reply*))
    "If NAME is a string, it is converted to a keyword first."
-   (setf (header-out (as-keyword name :destructivep nil) reply) new-value))
-  (:method :after (new-value (name (eql :content-length)) &optional (reply *reply*))
-   "Special case for the `Content-Length' header."
-   (check-type new-value integer)
-   (setf (slot-value reply 'content-length) new-value))
-  (:method :after (new-value (name (eql :content-type)) &optional (reply *reply*))
-   "Special case for the `Content-Type' header."
-   (check-type new-value (or null string))
-   (setf (slot-value reply 'content-type) new-value)))
+   (setf (header-out (as-keyword name :destructivep nil) reply) new-value)))
+
+  ;; (:method :after (new-value (name (eql :content-length)) &optional (reply *reply*))
+  ;;  "Special case for the `Content-Length' header."
+  ;;  (check-type new-value integer)
+  ;;  (setf (slot-value reply 'content-length) new-value))
+  ;; (:method :after (new-value (name (eql :content-type)) &optional (reply *reply*))
+  ;;  "Special case for the `Content-Type' header."
+  ;;  (check-type new-value (or null string))
+  ;;  (setf (slot-value reply 'content-type) new-value)))

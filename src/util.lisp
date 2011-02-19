@@ -95,3 +95,10 @@ case.  Destructively modifies STRING if DESTRUCTIVEP is true."
                #'string-downcase))
            string)
           :keyword))
+
+(defun reason-phrase (return-code)
+  "Returns a reason phrase for the HTTP return code RETURN-CODE
+\(which should be an integer) or NIL for return codes Hunchentoot
+doesn't know."
+  (gethash return-code *http-reason-phrase-map* 
+           "No reason phrase known"))

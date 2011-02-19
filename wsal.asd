@@ -10,9 +10,9 @@
             ((:file "packages")
              (:file "constants" :depends-on ("packages"))
              (:file "conditions" :depends-on ("packages"))
-             (:file "util" :depends-on ("packages"))
-             (:file "know-words" :depends-on ("constants" "util"))
+             (:file "util" :depends-on ("packages" "constants"))
+             (:file "known-words" :depends-on ("constants" "util"))
              (:file "protocol" :depends-on ("packages"))
              (:file "cookie" :depends-on ("util" "conditions"))
-             (:file "interface" :depends-on ("know-words" "util" "protocol" "cookie"))))))
+             (:file "interface" :depends-on ("known-words" "util" "protocol" "cookie"))))))
                     

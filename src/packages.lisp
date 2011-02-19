@@ -64,6 +64,9 @@
            #:cookie-date
            #:stringify-cookie
 
+           ;; utils
+           #:reason-phrase
+
            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
            ;;; web servers protocol
            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
