@@ -233,3 +233,15 @@ alist or NIL if there was no data or the data could not be parsed."
                              encoding)))
 
 
+
+(defun starts-with-scheme-p (string)
+  "Checks whether the string STRING represents a URL which starts with
+a scheme, i.e. something like 'https://' or 'mailto:'."
+  (loop with scheme-char-seen-p = nil
+        for c across string
+        when (or (char-not-greaterp #\a c #\z)
+                 (digit-char-p c)
+                 (member c '(#\+ #\- #\.) :test #'char=))
+        do (setq scheme-char-seen-p t)
+        else return (and scheme-char-seen-p
+                         (char= c #\:))))

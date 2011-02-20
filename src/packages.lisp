@@ -67,6 +67,8 @@
            ;; utils
            #:rfc-1123-date
            #:make-keyword
+           #:starts-with-scheme-p
+
            #:reason-phrase
 
            #:url-encode
