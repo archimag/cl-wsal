@@ -65,7 +65,24 @@
            #:stringify-cookie
 
            ;; utils
+           #:rfc-1123-date
+           #:make-keyword
            #:reason-phrase
+
+           #:url-encode
+           #:url-decode
+           #:escape-for-html
+
+           #:form-url-encoded-list-to-alist
+           #:parse-multipart-form-data
+
+           #:*tmp-directory*
+           #:*tmp-files*
+           #:*file-upload-hook*
+           #:make-tmp-file-name
+
+           #:*mime-type-hash*
+           #:mime-type
 
            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
            ;;; web servers protocol
@@ -137,3 +154,24 @@
            #:header-out-set-p
            #:header-out
            #:cookie-out))
+
+(defpackage #:wsal.rfc2388
+  (:use :common-lisp)
+  (:export
+   #:parse-header
+   #:header
+   #:header-name
+   #:header-value
+   #:header-parameters
+
+   #:content-type
+   #:find-header
+   #:find-parameter
+   #:find-content-disposition-header
+   #:get-file-name
+
+   #:parse-mime
+   #:mime-part
+   #:mime-part-contents
+   #:mime-part-headers
+   #:make-mime-part))

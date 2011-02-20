@@ -74,3 +74,20 @@ for cookie date format.")
   #("Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug" "Sep" "Oct" "Nov" "Dec")
   "The three-character names of the twelve months - needed for cookie
 date format.")
+
+
+
+(defvar *tmp-directory*
+  #+(or :win32 :mswindows) "c:\\wsal-temp\\"
+  #-(or :win32 :mswindows) "/tmp/wsal/"
+  "Directory for temporary files created by MAKE-TMP-FILE-NAME.")
+
+(defvar *tmp-files* nil
+  "A list of temporary files created while a request was handled.")
+
+(defvar *file-upload-hook* nil
+  "If this is not NIL, it should be a unary function which will
+be called with a pathname for each file which is uploaded to
+Hunchentoot.  The pathname denotes the temporary file to which
+the uploaded file is written.  The hook is called directly before
+the file is created.")

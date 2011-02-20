@@ -49,6 +49,9 @@
 (defgeneric headers-out (reply)
   (:documentation "Returns an alist of the outgoing headers associated with the REPLY object reply."))
 
+(defgeneric (setf headers-out) (newvalue reply)
+  (:documentation "Sets an alist of the outgoing headers associated with the REPLY object reply."))
+
 (defgeneric content-length (reply)
   (:documentation "The outgoing 'Content-Length' http header of reply."))
 
