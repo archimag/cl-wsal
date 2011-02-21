@@ -55,14 +55,8 @@
 (defgeneric content-length (reply)
   (:documentation "The outgoing 'Content-Length' http header of reply."))
 
-(defgeneric (setf content-length) (newvalue reply)
-  (:documentation "Set the outgoing 'Content-Length' http header of reply."))
-
 (defgeneric content-type (reply)
   (:documentation "The outgoing 'Content-Type' http header of reply."))
-
-(defgeneric (setf content-type) (newvalue reply)
-  (:documentation "Set the outgoing 'Content-Type' http header of reply."))
 
 (defgeneric cookies-out (reply)
   (:documentation "Return an alist of the outgoing cookies associated with the REPLY object reply."))

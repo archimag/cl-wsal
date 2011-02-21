@@ -1,4 +1,4 @@
-;;;; cookie.lisp
+;;; cookie.lisp
 
 ;;; Copyright (c) 2004-2010, Dr. Edmund Weitz.  All rights reserved.
 
